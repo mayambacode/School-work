@@ -1,0 +1,33 @@
+
+
+<section class="gridArea">
+
+    <div class="shopping" class="common">
+
+        <h3>Add a Shopping Item</h3>
+     <label for=""><input [(ngModel)]="shoppingItem"> </label> 
+
+     <button id="addList" mat-raised-button [disabled]="shoppingItem === '' " (click)="addItem()">
+         Add to List
+    </button> 
+
+    <button id="removeAll" mat-raised-button (click)="clearList()" [disabled]="shoppingList.length == 0 ">Remove All</button>
+        <br>
+        <span id="itemDisplay">{{shoppingItem}}</span>
+    </div>
+
+    <div class="listArea" class="common" >
+        
+
+            <h3 [ngStyle]="{'color': changeColor()}"> Shopping List</h3>
+            <br>
+
+            <ul >
+                <li *ngFor="let item of shoppingList">{{ item| titlecase}}</li>
+            </ul>
+            
+
+
+    </div>
+
+</section>
